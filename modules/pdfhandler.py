@@ -85,7 +85,7 @@ class SpirePdf:
         # object was instantiated.
         headers = []
         for i, item in enumerate(text_list):
-            # Ignorere case sensitivity/special characters and find the
+            # Ignore case sensitivity/special characters and find the
             # header (sometimes image text isn't translated 100% 
             # accurately).
             if core.list_contains_text(self.columns, item):
@@ -93,3 +93,23 @@ class SpirePdf:
         
         # Return the last/highest index found.
         return max(headers)
+    
+    def close(self):
+        # Close the PdfDocument object.
+        self.pdf.Close()
+
+# Functions outside the SpirePdf class.
+def load_pdf_file(path):
+    # Load a PDF file using spire.pdf and return the pdf object.
+    doc = PdfDocument()
+    doc.LoadFromFile(path)
+
+    return doc
+
+def split_pdf_on_range(doc, path, start, end):
+    # Given a loaded PdfDocument object, extract a range of pages from
+    # the PDF document and save them as a separate PDF document.
+    new_doc = PdfDocument()
+    new_doc.InsertPageRange(doc, start, end)
+    new_doc.SaveToFile(path)
+    new_doc.Close()
