@@ -75,10 +75,19 @@
         - The language of the text contained within the PDF
         - This is required so that the OCR Model knows what language to use when converting the images to text
         - i.e., English
+    - other.split_size
+        - Integer value (Default is 10)
+        - If the PDF has more pages than the number defined in this variable, it will be split into two/more individual PDF documents of this size (or less, potentially, in the case of the final split doc)
+        - This number can be changed as needed for your use case, but it is recommended to keep it at/below 10, as I have found that the image conversion tends to fail once you get beyond 10 pages in a single PDF document (the converted image is just a blank page with no text, so the rest of the program fails after that)
     - other.delete_images
         - Can be True or False
         - If True: the images that get created of each PDF page will be deleted from the output folder/directory after all text is extracted and stored from the page
         - If False: the images will not be deleted and will be stored in the output directory along with the final Excel output
+    - other.delete_split_pdfs
+        - Can be True or False
+        - If True: the split PDF documents that (potentially) get created from the original PDF will be deleted from the output folder/directory after all text is extracted and stored from the page
+        - If False: the split PDF documents will not be deleted and will be stored in the output directory along with the final Excel output
+
 - If desired, new variables can be added to the config file to be used by any custom code added to the `./main.py` file
 
 ## Usage and Customization
@@ -123,3 +132,6 @@
         - Depending on the value of the delete_images config variable, an image for each page of the PDF.
             - By default, the config variable delete_images is set to False, so these images will be saved to the output directory.
             - If delete_images is set to True, the images will be deleted and the Excel file will be the only output of the program.
+        - Depending on the value of the delete_pdfs config variable, multiple PDF files for a particular range of pages split out from the original file.
+            - By default, the config variable delete_pdfs is set to False, so these PDFs will be saved to the output directory.
+            - If delete_pdfs is set to True, the PDFs will be deleted and the Excel file will be the only output of the program.
