@@ -1,6 +1,6 @@
-# Project Documentation: *extract_pdf_to_excel*
+# Project Documentation: *pdf_to_excel*
 ## Overview
-- **Project Name**: *extract_pdf_to_excel*
+- **Project Name**: *pdf_to_excel*
 - **Created By**: Paul Hegedus
 - **Created On**: May 2025
 - **Description**:
@@ -8,7 +8,7 @@
     - The project is structured so that the functionality common to extracting the PDF data is contained in a reusable Python module. Then, users can add custom code to the `./main.py` and `./modules/custom.py` files to handle data processing that is specific to the actual PDF document they are trying to convert to Excel.
 - **File Structure**:
     ```python
-    extract_pdf_to_excel/
+    pdf_to_excel/
         config/
             config.ini
         modules/
@@ -33,7 +33,7 @@
         - Windows: `env\Scripts\activate`
 - Install/Unzip the project into a folder/directory on your local machine.
     - If you created a python virtual environment, the project should be installed/unzip in the folder/directory you established the virtual environment in.
-- From the main project folder (`extract_pdf_to_excel` by default), run:
+- From the main project folder (`pdf_to_excel` by default), run:
     - `python -m pip install -r requirements.txt`
 ### Optical Character Recognition (OCR) Model
 - This project uses OCR to identify characters in an image and convert them to machine-readable text
@@ -118,7 +118,7 @@
         options:
         -h, --help     show this help message and exit
         -v, --verbose  output helpful messages while the program runs
-    - From the top-level project folder/directory (`extract_pdf_to_excel` by default), run:
+    - From the top-level project folder/directory (`pdf_to_excel` by default), run:
         - `python main.py config/config.ini`
     - For more detailed output, run in verbose mode:
         - `python main.py config/config.ini -v`
