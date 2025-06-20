@@ -236,7 +236,7 @@ if __name__ == "__main__":
     # Instantiate a dataframe to store the PDF data (structure defined
     # via config file) and slice pdf_pages_as_list to populate the
     # columns of the dataframe.
-    breakpoint()
+    # breakpoint()
     pdf_dataframe = core.slice_list_to_df(pdf_pages_as_list, col_names)
 
     # Export the data to an Excel file.
